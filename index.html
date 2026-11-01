@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3f5ff">
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Passify home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M14.5 10.5a5 5 0 1 0-2.1 4.08L15 17h3v-3h3v-3h-5.22a4.98 4.98 0 0 0-1.28-.5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.5 10.5h.01" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Passify</span>
+      </a>
+      <span class="header-note"><span class="status-dot"></span> Your security, made simple</span>
+    </header>
+
+    <section class="generator-layout" aria-labelledby="page-title">
+      <div class="intro">
+        <div class="eyebrow"><span class="sparkle" aria-hidden="true">✦</span> PASSWORD GENERATOR</div>
+        <h1 id="page-title">A stronger password.<br><span>Just a click away.</span></h1>
+        <p class="intro-copy">Create a secure, one-of-a-kind password in seconds.</p>
+        <div class="privacy-note">
+          <span class="privacy-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3 19 6v5c0 4.7-3 8-7 10-4-2-7-5.3-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span><strong>Private by design</strong><br>Your password never leaves this page.</span>
+        </div>
+      </div>
+
+      <section class="generator-card" aria-label="Password generator controls">
+        <div class="card-heading">
+          <div>
+            <p class="section-kicker">CUSTOM PASSWORD ENHANCEMENT</p>
+            <h2>Make it yours</h2>
+          </div>
+          <span class="lock-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="11" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 1 1 8 0v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 14v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+
+        <div class="source-password-field">
+          <label for="source-password">Your current password</label>
+          <input id="source-password" type="password" placeholder="Enter a password to inspire your new one" autocomplete="off" autocapitalize="off" spellcheck="false">
+          <p class="password-hint">A short fragment stays recognizable while secure characters are randomized around it. Your input is cleared after generation.</p>
+        </div>
+
+        <label class="result-label" for="password-output">Enhanced password</label>
+        <div class="password-box">
+          <input id="password-output" type="password" value="" placeholder="Your enhanced password will appear here" aria-label="Enhanced password" readonly autocomplete="off" spellcheck="false">
+          <button class="visibility-button" id="visibility-button" type="button" aria-label="Show generated password" aria-pressed="false">Show</button>
+          <button class="icon-button regenerate-button" id="regenerate-button" type="button" aria-label="Regenerate password" title="Regenerate password">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7v5h-5M4.6 9a7.5 7.5 0 0 1 12.3-2.5L20 12M4 17v-5h5m10.4 3a7.5 7.5 0 0 1-12.3 2.5L4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <div class="strength-row" aria-live="polite">
+          <div class="strength-label"><span>Password strength</span><strong id="strength-text">—</strong></div>
+          <div class="strength-meter" id="strength-meter" role="img" aria-label="No password generated">
+            <span class="strength-segment"></span><span class="strength-segment"></span><span class="strength-segment"></span><span class="strength-segment"></span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="length-heading">
+          <label for="length-slider">Password length</label>
+          <output id="length-value" for="length-slider">16</output>
+        </div>
+        <input id="length-slider" class="length-slider" type="range" min="8" max="32" value="16" aria-label="Password length">
+        <div class="range-labels"><span>8 characters</span><span>32 characters</span></div>
+
+        <fieldset class="options">
+          <legend>Include characters</legend>
+          <label class="option">
+            <input id="uppercase" type="checkbox" checked>
+            <span class="custom-check" aria-hidden="true"></span>
+            <span class="option-copy"><strong>Uppercase</strong><small>A–Z</small></span>
+          </label>
+          <label class="option">
+            <input id="lowercase" type="checkbox" checked>
+            <span class="custom-check" aria-hidden="true"></span>
+            <span class="option-copy"><strong>Lowercase</strong><small>a–z</small></span>
+          </label>
+          <label class="option">
+            <input id="numbers" type="checkbox" checked>
+            <span class="custom-check" aria-hidden="true"></span>
+            <span class="option-copy"><strong>Numbers</strong><small>0–9</small></span>
+          </label>
+          <label class="option">
+            <input id="symbols" type="checkbox" checked>
+            <span class="custom-check" aria-hidden="true"></span>
+            <span class="option-copy"><strong>Symbols</strong><small>!@#$%</small></span>
+          </label>
+        </fieldset>
+
+        <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        <label class="note-label" for="password-note">Password note</label>
+        <input class="note-input" id="password-note" type="text" maxlength="80" placeholder="e.g. Gmail, Instagram, College Portal" autocomplete="off">
+        <label class="note-label" for="password-category">Category</label>
+        <select class="category-select" id="password-category" aria-label="Password category"></select>
+        <div class="actions">
+          <button class="generate-button" id="generate-button" type="button">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.64 5.64l2.12 2.12m8.48 8.48 2.12 2.12m0-12.72-2.12 2.12m-8.48 8.48-2.12 2.12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/></svg>
+            Generate password
+          </button>
+          <button class="copy-button" id="copy-button" type="button" aria-label="Copy password to clipboard">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <span>Copy</span>
+          </button>
+          <button class="save-button" id="save-button" type="button">Save</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="vault-section" aria-labelledby="vault-title">
+      <div class="vault-heading">
+        <div>
+          <p class="section-kicker">ENCRYPTED ON THIS DEVICE</p>
+          <h2 id="vault-title">Password Vault</h2>
+          <p class="vault-description">Your saved entries are encrypted with your vault passphrase before they are stored.</p>
+        </div>
+        <span class="lock-badge vault-lock-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="11" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 1 1 8 0v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 14v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+      </div>
+
+      <form class="vault-access" id="vault-access">
+        <label for="vault-passphrase" id="vault-passphrase-label">Create a vault passphrase</label>
+        <div class="vault-access-row">
+          <input id="vault-passphrase" type="password" minlength="12" autocomplete="new-password" placeholder="At least 12 characters" required>
+          <button class="vault-access-button" id="vault-access-button" type="submit">Create vault</button>
+        </div>
+        <p class="vault-hint" id="vault-hint">Use a strong passphrase you can remember. It cannot be recovered if you forget it.</p>
+      </form>
+
+      <div class="vault-unlocked" id="vault-unlocked" hidden>
+        <div class="vault-toolbar">
+          <span class="vault-state"><span class="status-dot"></span> Vault unlocked</span>
+          <button class="vault-lock-button" id="vault-lock-button" type="button">Lock vault</button>
+        </div>
+        <div class="vault-tools">
+          <label class="vault-search-label" for="vault-search">Search passwords</label>
+          <input class="vault-search" id="vault-search" type="search" placeholder="Search notes or categories" autocomplete="off">
+          <label class="vault-filter-label" for="vault-category-filter">Filter category</label>
+          <select class="vault-category-filter" id="vault-category-filter"></select>
+        </div>
+        <form class="category-create-form" id="category-create-form">
+          <label for="new-category">Create a category</label>
+          <div class="category-create-row">
+            <input id="new-category" type="text" maxlength="40" placeholder="e.g. Travel" autocomplete="off" required>
+            <button class="vault-access-button" type="submit">Add category</button>
+          </div>
+        </form>
+        <div class="vault-entries" id="vault-entries" aria-live="polite"></div>
+      </div>
+      <p class="vault-message" id="vault-message" role="status" aria-live="polite"></p>
+    </section>
+
+    <footer class="site-footer">
+      <span>Made for a little more peace of mind.</span>
+      <span><span class="footer-lock" aria-hidden="true">●</span> Secure. Simple. Yours.</span>
+    </footer>
+  </main>
+</body>
+</html>
